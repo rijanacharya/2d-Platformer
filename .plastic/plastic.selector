@@ -1,0 +1,4 @@
+repository "2d platform@rijanacharya100@cloud"
+  path "/"
+    br "/main"
+    co "/main"
