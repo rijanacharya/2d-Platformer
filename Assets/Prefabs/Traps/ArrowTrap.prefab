@@ -110,6 +110,7 @@ MonoBehaviour:
   - {fileID: 7020027573666168317}
   - {fileID: 6321859447146835039}
   - {fileID: 961426667456445065}
+  arrowSound: {fileID: 8300000, guid: 1797902d8d1efd747bb54ad4537106d0, type: 3}
 --- !u!1 &5591959692637974554
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 8788476785888038400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 0, z: 0}
+  m_LocalPosition: {x: 0.197, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

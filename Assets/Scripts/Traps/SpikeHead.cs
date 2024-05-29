@@ -12,6 +12,8 @@ public class SpikeHead : EnemyDamage
     private Vector3[] directions = new Vector3[4];
     private bool attacking;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip impactSound;
 
     private void Update()
     {
@@ -61,6 +63,7 @@ public class SpikeHead : EnemyDamage
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        SoundManager.instance.PlaySound(impactSound);
         base.OnTriggerEnter2D(collision);
         // stope spikhead after it hits something
         Stop();

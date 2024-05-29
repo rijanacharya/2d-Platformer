@@ -9,7 +9,7 @@ public class EnemyProjectile : EnemyDamage
     private BoxCollider2D boxCollider;
     private bool hit;
 
-    private void Awake()
+    private void Awake() 
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();

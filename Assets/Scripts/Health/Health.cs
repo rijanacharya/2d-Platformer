@@ -16,6 +16,10 @@ public class Health : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
 
+    [Header("Death Sound")]
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip hurtSound;
+
     private bool invulnerable;
     public float currentHealth { get; private set; }
 
@@ -34,16 +38,19 @@ public class Health : MonoBehaviour
         {
             anim.SetTrigger("hurt");
             StartCoroutine(Invunerablity() );
+            SoundManager.instance.PlaySound(hurtSound);
         }
         else
         {
             if (!dead)
             {
-                anim.SetTrigger("die");
                 // disable all attached components
                 foreach (Behaviour component in components)
                     component.enabled = false;
+                anim.SetBool("grounded", true);
+                anim.SetTrigger("die");
                 dead = true;
+                SoundManager.instance.PlaySound(deathSound);
             }
            
             
@@ -73,6 +80,21 @@ public class Health : MonoBehaviour
         invulnerable = false;
     }
 
+    public void Respawn()
+    {
+
+
+        //Check if  checkpoint is available
+
+        AddHealth(startingHealth);
+        anim.ResetTrigger("die");
+        anim.Play("Idle");
+        StartCoroutine(Invunerablity());
+        dead = false;
+        // enable all attached components
+        foreach (Behaviour component in components)
+            component.enabled = true;
+    }
     private void Deactivate()
     {
         gameObject.SetActive(false);
